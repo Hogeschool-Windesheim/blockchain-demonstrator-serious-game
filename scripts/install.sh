@@ -82,7 +82,7 @@ dotnet publish ~/blockchain-demonstrator-serious-game/BlockchainDemonstratorWebA
 
 #Run REST API and web app
 echo "V--------------------Running REST API and web app--------------------V"
-url="demonstrator.sparklivinglab.nl"
+url="demonstrator.valuechainhackers.xyz"
 echo "Warning the URL is currently set to $url make sure this address is correct!" 
 
 (cd ~/blockchain-demonstrator-serious-game/BlockchainDemonstratorApi/bin/Debug/netcoreapp3.1/publish/
