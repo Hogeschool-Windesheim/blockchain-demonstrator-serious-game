@@ -34,14 +34,6 @@ echo "🐍 STEP 5: Install Python packages globally (with override)..."
 python3 -m pip install --upgrade pip --break-system-packages
 python3 -m pip install requests pandas flask --break-system-packages
 
-echo "📁 STEP 6: Clone the Beer Game repo..."
-cd ~
-if [ -d "blockchain-demonstrator-serious-game" ]; then
-  echo "📦 Repo already exists, pulling latest changes..."
-  cd blockchain-demonstrator-serious-game && git pull
-else
-  git clone https://github.com/Hogeschool-Windesheim/blockchain-demonstrator-serious-game.git
-fi
 
 echo "📦 STEP 7 & 8: Using newgrp to run Docker build and container launch in current session..."
 newgrp docker <<EONG
