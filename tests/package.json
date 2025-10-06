@@ -1,0 +1,19 @@
+{
+  "name": "blockchain-demonstrator-e2e-tests",
+  "version": "1.0.0",
+  "description": "Playwright E2E tests for Blockchain Demonstrator",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:https": "playwright test --grep 'HTTPS'",
+    "test:http": "playwright test --grep 'HTTP'",
+    "test:30rounds": "playwright test --grep '30 rounds'",
+    "test:50rounds": "playwright test --grep '50 rounds'",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}
