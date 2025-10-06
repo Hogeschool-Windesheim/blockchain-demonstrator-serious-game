@@ -4,7 +4,7 @@ After=network.target beergame-api.service
 
 [Service]
 WorkingDirectory=/root/blockchain-demonstrator-serious-game/publish/webapp
-ExecStart=/usr/bin/dotnet /root/blockchain-demonstrator-serious-game/publish/webapp/BlockchainDemonstratorWebApp.dll 10.0.5.13:8080
+ExecStart=/usr/bin/dotnet /root/blockchain-demonstrator-serious-game/publish/webapp/BlockchainDemonstratorWebApp.dll localhost:5002
 Restart=always
 RestartSec=10
 KillSignal=SIGINT
