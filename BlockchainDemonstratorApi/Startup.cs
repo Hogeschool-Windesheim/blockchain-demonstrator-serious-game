@@ -47,12 +47,26 @@ namespace BlockchainDemonstratorApi
                 options.AddPolicy(name: BlockchainDemonstratorWebApp,
                     builder =>
                     {
+                        // Development origins
                         builder.WithOrigins("https://localhost:44313").AllowAnyHeader()
                             .AllowAnyMethod().AllowCredentials();
+
+                        // Production origins - based on ServerIp parameter
                         builder.WithOrigins("https://" + Config.ServerIp).AllowAnyHeader()
                             .AllowAnyMethod().AllowCredentials();
                         builder.WithOrigins("http://" + Config.ServerIp).AllowAnyHeader()
                             .AllowAnyMethod().AllowCredentials();
+
+                        // Additional origins from environment variable (comma-separated)
+                        var additionalOrigins = Environment.GetEnvironmentVariable("CORS_ORIGINS");
+                        if (!string.IsNullOrEmpty(additionalOrigins))
+                        {
+                            foreach (var origin in additionalOrigins.Split(','))
+                            {
+                                builder.WithOrigins(origin.Trim()).AllowAnyHeader()
+                                    .AllowAnyMethod().AllowCredentials();
+                            }
+                        }
                     });
             });
             
@@ -72,7 +86,7 @@ namespace BlockchainDemonstratorApi
             {
                 string file = File.ReadAllText("appsettings.json");
                 dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject(file);
-                json["ConnectionStrings"]["BeerGameContext"] = "Server=172.17.0.2;Database=BeerGameContext;Trusted_Connection=True;MultipleActiveResultSets=true;User id=sa;Password=B33rgam3;Integrated Security=false";
+                json["ConnectionStrings"]["BeerGameContext"] = "Server=127.0.0.1,1433;Database=BeerGameContext;Trusted_Connection=True;MultipleActiveResultSets=true;User id=sa;Password=B33rgam3;Integrated Security=false";
                 string output = Newtonsoft.Json.JsonConvert.SerializeObject(json, Newtonsoft.Json.Formatting.Indented);
                 File.WriteAllText("appsettings.json", output);
             }

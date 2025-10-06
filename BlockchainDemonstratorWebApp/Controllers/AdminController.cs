@@ -44,7 +44,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
                     if (responseString != null)
                     {
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         ViewData["GameMasterId"] = (gameMasterId != null) ? gameMasterId : "";
                         return View(JsonConvert.DeserializeObject<List<Game>>(responseString));
                     }
@@ -71,7 +71,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     if (responseString != null)
                     {
                         Game game = JsonConvert.DeserializeObject<Game>(responseString);
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         return View(game);
                     }
                 }
@@ -99,7 +99,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
                     if (responseString != null)
                     {
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         return View(JsonConvert.DeserializeObject<Game>(responseString));
                     }
                 }
@@ -125,7 +125,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
                     if (responseString != null)
                     {
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         return View(JsonConvert.DeserializeObject<Game>(responseString));
                     }
                 }
@@ -192,7 +192,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
                     if (responseString != null)
                     {
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         return View(JsonConvert.DeserializeObject<Game>(responseString));
                     }
                 }
@@ -217,7 +217,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
                     if (responseString != null)
                     {
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         return RedirectToAction("Index", "Admin");
                     }
                 }
@@ -240,7 +240,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
                     if (responseString != null)
                     {
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         return View(JsonConvert.DeserializeObject<List<GameMaster>>(responseString));
                     }
                 }
@@ -267,7 +267,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
                     if (responseString != null)
                     {
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         return View(JsonConvert.DeserializeObject<GameMaster>(responseString));
                     }
                 }
@@ -293,7 +293,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
                     if (responseString != null)
                     {
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         return RedirectToAction("GameMaster", "Admin");
                     }
                 }

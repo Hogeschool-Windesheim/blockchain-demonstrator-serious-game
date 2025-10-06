@@ -58,7 +58,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                         ViewData["CurrentDay"] = game.CurrentDay;
                         ViewData["GameId"] = game.Id;
                         ViewData["GameReady"] = game.Players.Count == 4;
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         ViewData["ThirdPhaseNotReady"] = false;
                         ViewData["Players"] = game.Players;
                         if (game.Players.Any(p => p.ChosenOption == null) && game.CurrentDay == Factors.RoundIncrement * 16 + 1){
@@ -79,7 +79,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
         /// <returns></returns>
         public IActionResult ChooseRoleAndName(string gameId)
         {
-            ViewData["RestApiUrl"] = Config.RestApiUrl;
+            ViewData["RestApiUrl"] = Config.PublicApiUrl;
             ViewData["GameId"] = gameId;
             return View();
         }
@@ -108,7 +108,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                         RemoveCookie("JoinedGame");
                         Game game = JsonConvert.DeserializeObject<Game>(responseString);
                         ViewData["Player"] = game.Players.FirstOrDefault(p => p.Id == playerId);
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         ViewData["GameId"] = gameId;
                         return View(game);
                     }

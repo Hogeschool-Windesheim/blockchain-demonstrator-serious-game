@@ -9,6 +9,18 @@
     public static class Config
     {
         public static string RestApiUrl { get; set; }
-        public static string ServerIp { get; set; }    
+        public static string ServerIp { get; set; }
+
+        /// <summary>
+        /// Public-facing API URL for client-side JavaScript (browsers).
+        /// Falls back to RestApiUrl if not explicitly set.
+        /// Set via environment variable: PUBLIC_API_URL
+        /// </summary>
+        public static string PublicApiUrl
+        {
+            get => _publicApiUrl ?? RestApiUrl;
+            set => _publicApiUrl = value;
+        }
+        private static string _publicApiUrl;
     }
 }

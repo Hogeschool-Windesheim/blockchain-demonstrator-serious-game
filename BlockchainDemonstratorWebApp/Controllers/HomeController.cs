@@ -33,7 +33,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
         /// </summary>
         public IActionResult Index()
         {
-            ViewData["RestApiUrl"] = Config.RestApiUrl;
+            ViewData["RestApiUrl"] = Config.PublicApiUrl;
             return View();
         }
 

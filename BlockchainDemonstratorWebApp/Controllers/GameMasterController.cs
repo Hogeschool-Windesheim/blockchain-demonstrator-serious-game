@@ -62,7 +62,7 @@ namespace Blockchain_Demonstrator_Web_App.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
                     if (responseString != null)
                     {
-                        ViewData["RestApiUrl"] = Config.RestApiUrl;
+                        ViewData["RestApiUrl"] = Config.PublicApiUrl;
                         return View(JsonConvert.DeserializeObject<Game>(responseString));
                     }
                 }

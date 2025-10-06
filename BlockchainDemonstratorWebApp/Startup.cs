@@ -46,7 +46,20 @@ namespace Blockchain_Demonstrator_Web_App
             else
             {
                 Config.RestApiUrl = $"http://{Config.ServerIp}";
-                
+
+                // Set public-facing API URL from environment variable if provided
+                // This is used for client-side JavaScript to connect to the API
+                var publicApiUrl = Environment.GetEnvironmentVariable("PUBLIC_API_URL");
+                if (!string.IsNullOrEmpty(publicApiUrl))
+                {
+                    Config.PublicApiUrl = publicApiUrl;
+                }
+                else
+                {
+                    // Default: use HTTPS version of the domain if available
+                    Config.PublicApiUrl = $"https://{Config.ServerIp}";
+                }
+
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
